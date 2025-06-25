@@ -55,11 +55,6 @@ export const WorksheetPreview = forwardRef<HTMLDivElement, WorksheetPreviewProps
           <div
             ref={ref}
             className="p-8 bg-white h-full font-body text-gray-800 relative"
-            style={{
-              backgroundImage:
-                'linear-gradient(to bottom, transparent calc(100% - 1px), hsl(var(--primary) / 0.5) calc(100% - 1px))',
-              backgroundSize: '100% 4rem',
-            }}
           >
             <header className="mb-8 pb-4 border-b-2 border-dashed border-primary/50">
               <h1 className="font-headline text-3xl font-bold text-center text-primary/80 mb-4">
@@ -80,20 +75,32 @@ export const WorksheetPreview = forwardRef<HTMLDivElement, WorksheetPreviewProps
                 <p className="text-center text-xs text-gray-500 mt-2">{`${pageNumber} / ${totalPages}`}</p>
               )}
             </header>
-            <ol className="space-y-12 list-inside text-3xl">
-              {sentences.map((sentence, index) => (
-                <li key={index} className="flex">
-                  <span className="mr-4 font-bold">{startingIndex + index + 1}.</span>
-                  <p className="flex-1">{sentence}</p>
-                </li>
-              ))}
-               {sentences.length === 0 && (
-                <div className="text-center text-muted-foreground py-20">
-                    <p>왼쪽에서 문장을 추가하면</p>
-                    <p>여기에 표시됩니다!</p>
-                </div>
-               )}
-            </ol>
+            
+            <div
+              className="text-4xl"
+              style={{
+                backgroundImage:
+                  'linear-gradient(to bottom, transparent calc(100% - 1px), hsl(var(--primary) / 0.8) calc(100% - 1px))',
+                backgroundSize: '100% 4.5rem',
+              }}
+            >
+              <div className="list-none">
+                {sentences.length > 0 
+                  ? sentences.flatMap((sentence, index) => [
+                      <div key={`sentence-${index}`} className="flex items-center h-[4.5rem]">
+                        <span className="mr-4 font-bold">{startingIndex + index + 1}.</span>
+                        <p className="flex-1">{sentence}</p>
+                      </div>,
+                      <div key={`practice-${index}`} className="h-[4.5rem]" />,
+                    ])
+                  : (
+                  <div className="text-center text-muted-foreground py-20">
+                      <p>왼쪽에서 문장을 추가하면</p>
+                      <p>여기에 표시됩니다!</p>
+                  </div>
+                 )}
+              </div>
+            </div>
 
             <CutePencilIcon />
           </div>
