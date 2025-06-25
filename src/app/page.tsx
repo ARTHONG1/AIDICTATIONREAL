@@ -14,6 +14,7 @@ import { ManualInput } from '@/components/manual-input';
 import { SentenceList } from '@/components/sentence-list';
 import { WorksheetPreview } from '@/components/worksheet-preview';
 import type { GenerateDictationSentencesInput } from '@/ai/flows/generate-dictation-sentences';
+import { AdditionalFeatures } from '@/components/additional-features';
 
 const PAGE_SIZE = 6;
 
@@ -122,6 +123,8 @@ export default function Home() {
               />
               <Separator />
               <ManualInput setSentences={setSentences} />
+              <Separator />
+              <AdditionalFeatures />
               <SentenceList sentences={sentences} setSentences={setSentences} />
             </CardContent>
           </Card>
