@@ -57,7 +57,6 @@ const prompt = ai.definePrompt({
   The dictation goal is: {{dictationGoal}}.
   The proficiency level is: {{proficiencyLevel}}.
 
-  The sentences should be appropriate for the given grade level, dictation goal, and proficiency level.
   Sentences must be grammatically correct and make sense.
   Each sentence must be 11 characters or less.
   Sentences should be interesting and engaging for young students.
