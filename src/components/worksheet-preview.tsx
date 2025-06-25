@@ -6,6 +6,9 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 
 type WorksheetPreviewProps = {
   sentences: string[];
+  pageNumber: number;
+  totalPages: number;
+  startingIndex: number;
 };
 
 const CutePencilIcon = () => (
@@ -43,7 +46,7 @@ const CutePencilIcon = () => (
 
 
 export const WorksheetPreview = forwardRef<HTMLDivElement, WorksheetPreviewProps>(
-  ({ sentences }, ref) => {
+  ({ sentences, pageNumber, totalPages, startingIndex }, ref) => {
     return (
       <Card
         className="aspect-[210/297] w-full max-w-xl mx-auto shadow-xl overflow-hidden"
@@ -73,11 +76,14 @@ export const WorksheetPreview = forwardRef<HTMLDivElement, WorksheetPreviewProps
                   이름: <span className="inline-block w-24 border-b border-gray-400"></span>
                 </p>
               </div>
+              {totalPages > 1 && (
+                <p className="text-center text-xs text-gray-500 mt-2">{`${pageNumber} / ${totalPages}`}</p>
+              )}
             </header>
             <ol className="space-y-10 list-inside text-xl">
               {sentences.map((sentence, index) => (
                 <li key={index} className="flex">
-                  <span className="mr-3 font-bold">{index + 1}.</span>
+                  <span className="mr-3 font-bold">{startingIndex + index + 1}.</span>
                   <p className="flex-1">{sentence}</p>
                 </li>
               ))}
