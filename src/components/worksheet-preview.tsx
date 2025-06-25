@@ -58,7 +58,7 @@ export const WorksheetPreview = forwardRef<HTMLDivElement, WorksheetPreviewProps
             style={{
               backgroundImage:
                 'linear-gradient(to bottom, transparent 98%, hsl(var(--border)) 98%)',
-              backgroundSize: '100% 2.5rem',
+              backgroundSize: '100% 3rem',
             }}
           >
             <header className="mb-8 pb-4 border-b-2 border-dashed border-primary/50">
@@ -80,10 +80,10 @@ export const WorksheetPreview = forwardRef<HTMLDivElement, WorksheetPreviewProps
                 <p className="text-center text-xs text-gray-500 mt-2">{`${pageNumber} / ${totalPages}`}</p>
               )}
             </header>
-            <ol className="space-y-10 list-inside text-xl">
+            <ol className="space-y-12 list-inside text-2xl">
               {sentences.map((sentence, index) => (
                 <li key={index} className="flex">
-                  <span className="mr-3 font-bold">{startingIndex + index + 1}.</span>
+                  <span className="mr-4 font-bold">{startingIndex + index + 1}.</span>
                   <p className="flex-1">{sentence}</p>
                 </li>
               ))}
