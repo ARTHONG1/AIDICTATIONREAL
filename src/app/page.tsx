@@ -15,7 +15,7 @@ import { SentenceList } from '@/components/sentence-list';
 import { WorksheetPreview } from '@/components/worksheet-preview';
 import type { GenerateDictationSentencesInput } from '@/ai/flows/generate-dictation-sentences';
 
-const PAGE_SIZE = 7;
+const PAGE_SIZE = 6;
 
 export default function Home() {
   const [sentences, setSentences] = useState<string[]>([]);
